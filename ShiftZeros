@@ -1,0 +1,50 @@
+package practice_programs;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ShiftZeros
+{
+	public static int[] leftRotate(int [] a,int index)
+	{
+		int temp=a[index];//Storing the value at index
+		for(int i=index;i<a.length-1;i++)
+		{
+			a[i]=a[i+1];//Shifting elements to left
+		}
+		a[a.length-1]=temp;//Storing the zero at last index
+		return a;
+	}
+	public static int[] shiftZeros(int [] a)
+	{
+		for(int i=0;i<a.length;i++)//Traversing the array
+		{
+			if(a[i]==0)
+				leftRotate(a,i);//Function call
+		}
+		return a;
+	}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the size of array :");
+		int size1=sc.nextInt();
+		int [] a= new int[size1];
+		for(int i=0;i<size1;i++)
+		{
+			System.out.print("Enter the value of index-"+i+": ");
+			a[i]=sc.nextInt();
+		}
+		System.out.println(Arrays.toString(a));
+		shiftZeros(a);//Function call
+		System.out.println(Arrays.toString(a));
+	}
+}
+
+
+
+
+
+
+
+
+
+
